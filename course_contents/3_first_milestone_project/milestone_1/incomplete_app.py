@@ -1,39 +1,67 @@
 # Incomplete app!
 
-MENU_PROMPT = "\nEnter 'a' to add a movie, 'l' to see your movies, 'f' to find a movie by title, or 'q' to quit: "
-movies = []
-
-
-# You may want to create a function for this code
-title = input("Enter the movie title: ")
-director = input("Enter the movie director: ")
-year = input("Enter the movie release year: ")
-
-movies.append({
+li=[
+  {'title':'Titanic', 'director':'Teddy', 'year':'2000'}]
+def add():
+    title = input("Enter the movie title: ")
+    director = input("Enter the movie director: ")
+    year = input("Enter the movie release year: ")
+    li.append({
     'title': title,
     'director': director,
     'year': year
-})
+    })
+    print("added to the list:",li)
+    return li
 
+
+  
+# You may want to create a function for this code
+ 
 
 # Create other functions for:
 #   - listing movies
-#   - finding movies
+def movies_h(d):
+  if d=='l':
+    print(li)
+    get_input()
+  elif d=='f':
+     
+     e = input("Enter the movie name to find:")
+     di={'user':e}
+     z=[]
+     z.append(di)
+     print(z)
+     for i in range(0, len(li)):
+       if z[0]['user']==li[i]['title']:
+         print("already in the list")
+       else:
+         print("Not in the List")
+         mohan=input("do you want to add the movie to list? Y/N: ")
+         if mohan=='Y':
+           add()
+         get_input()
 
 
-# And another function here for the user menu
-selection = input(MENU_PROMPT)
-while selection != 'q':
-    if selection == "a":
-        pass
-    elif selection == "l":
-        pass
-    elif selection == "f":
-        pass
-    else:
-        print('Unknown command. Please try again.')
+def get_input():
+  MENU_PROMPT = input("\n Enter 'a' to add a movie, 'l' to see your movies, 'f' to find a movie by title, or 'q' to quit: ")
+  user_options(MENU_PROMPT)
+  
 
-    selection = input(MENU_PROMPT)
+def user_options(user):
+  if user == 'a':
+    sri=add()
+    print(sri)
+    get_input()
+  elif user=='l' or user=='f':
+    movies_h(user)
+  elif user =='q':
+    print("User typed exit")
+  else:
+    print("Please enter the correct input!!")
+    get_input()
+
+get_input()
 
 
 # Remember to run the user menu function at the end!
